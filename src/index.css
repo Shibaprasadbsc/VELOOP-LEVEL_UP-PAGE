@@ -1,0 +1,24 @@
+/* Global reset only. Dashboard design tokens and component styles live in
+   styles/dashboard.css so they are maintained in one place. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
