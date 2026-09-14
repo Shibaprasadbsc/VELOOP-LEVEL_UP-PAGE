@@ -1,78 +1,70 @@
-import useLevelProgress from '../../hooks/useLevelProgress.jsx'
 import LevelHero from '../../components/LevelHero/levelhero.jsx'
-import CurrentLevel from '../../components/CurrentLevel/currentlevel.jsx'
-import XPProgress from '../../components/XPProgress/XPProgress.jsx'
-import NextLevelReward from '../../components/NextLevelReward/NextLevelReward.jsx'
-import LevelRoadmap from '../../components/LevelRoadmap/LevelRoadmap.jsx'
-import LevelRewardCard from '../../components/LevelRewardCard/LevelRewardCard.jsx'
-import PlayAndEarn from '../../components/PlayAndEarn/PlayAndEarn.jsx'
-import EarnMoreXP from '../../components/EarnMoreXP/EarnMoreXP.jsx'
-import XPActivity from '../../components/XPActivity/XPActivity.jsx'
-import LevelInfo from '../../components/LevelInfo/LevelInfo.jsx'
-import LevelUpModal from '../../components/LevelUpModal/LevelUpModal.jsx'
+import FeatureGrid from '../../components/Featuregrid/Featuregrid.jsx'
+import GiveawayLeaderboard from '../../components/GiveawayLeaderboard/GiveawayLeaderboard.jsx'
+import HowItWorks from '../../components/HowItWorks/HowItWorks.jsx'
+import FeaturedRewards from '../../components/FeaturedRewards/FeaturedRewards.jsx'
+import CTAStats from '../../components/CTAStats/CTAStats.jsx'
+import Footer from '../../components/Footer/Footer.jsx'
+import CoinCatcher from '../../components/CoinCatcher/CoinCatcher.jsx'
+
+
 
 function LevelDashboard() {
-  const {
-    currentLevel,
-    currentXP,
-    nextLevelXP,
-    remainingXP,
-    progressPercentage,
-    isLevelUp,
-  } = useLevelProgress()
-
   return (
     <div className="level-dashboard">
 
-      <LevelHero
-        currentLevel={currentLevel}
-        currentXP={currentXP}
-        nextLevelXP={nextLevelXP}
-      />
+      {/* ==================================================
+          HERO
+      ================================================== */}
 
-      <div className="level-dashboard__progress-group">
-        <CurrentLevel level={currentLevel} />
+      <LevelHero />
 
-        <XPProgress
-          currentXP={currentXP}
-          nextLevelXP={nextLevelXP}
-          remainingXP={remainingXP}
-          progressPercentage={progressPercentage}
-        />
-      </div>
+      {/* ==================================================
+          MAIN GRID
+      ================================================== */}
 
-      <NextLevelReward
-        nextLevel={currentLevel + 1}
-        remainingXP={remainingXP}
-      />
+      <section className="dashboard-main-grid">
 
-      <LevelRoadmap
-        currentLevel={currentLevel}
-      />
+        <FeatureGrid />
 
-      <LevelRewardCard
-        level={currentLevel}
-        reward="Current Level Reward"
-        unlocked={true}
-      />
+        <GiveawayLeaderboard />
 
-      <PlayAndEarn />
+      </section>
+      {/* ==================================================
+          MINI GAME
+      ================================================== */}
 
-      <EarnMoreXP />
+      <CoinCatcher />
 
-      <XPActivity />
+      {/* ==================================================
+          HOW VELOOP REWARDS WORK
+      ================================================== */}
 
-      <LevelInfo />
+      <HowItWorks />
 
-      <LevelUpModal
-        isOpen={isLevelUp}
-        onClose={() => {}}
-        newLevel={currentLevel + 1}
-        reward="+100 XP"
-      />
+      {/* ==================================================
+          FEATURED REWARDS
+      ================================================== */}
+
+      <FeaturedRewards />
+
+      {/* ==================================================
+          CTA + STATS
+      ================================================== */}
+
+      <CTAStats />
+      
+
+      {/* ==================================================
+          FOOTER
+      ================================================== */}
+
+      
+      <Footer />
 
     </div>
   )
 }
+
 
 export default LevelDashboard
