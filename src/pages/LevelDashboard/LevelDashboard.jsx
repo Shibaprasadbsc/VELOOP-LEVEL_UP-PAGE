@@ -1,4 +1,5 @@
 import LevelHero from '../../components/LevelHero/levelhero.jsx'
+import CurrentLevel from '../../components/CurrentLevel/CurrentLevel.jsx'
 import FeatureGrid from '../../components/Featuregrid/Featuregrid.jsx'
 import GiveawayLeaderboard from '../../components/GiveawayLeaderboard/GiveawayLeaderboard.jsx'
 import HowItWorks from '../../components/HowItWorks/HowItWorks.jsx'
@@ -8,21 +9,14 @@ import Footer from '../../components/Footer/Footer.jsx'
 import CoinCatcher from '../../components/CoinCatcher/CoinCatcher.jsx'
 
 
-
 function LevelDashboard() {
   return (
     <div className="level-dashboard">
 
-      {/* ==================================================
-          HERO
-      ================================================== */}
-
+    <section className="dashboard-hero">
       <LevelHero />
-
-      {/* ==================================================
-          MAIN GRID
-      ================================================== */}
-
+      <CurrentLevel />
+    </section>
       <section className="dashboard-main-grid">
 
         <FeatureGrid />
@@ -30,11 +24,14 @@ function LevelDashboard() {
         <GiveawayLeaderboard />
 
       </section>
+
+
       {/* ==================================================
           MINI GAME
       ================================================== */}
 
       <CoinCatcher />
+
 
       {/* ==================================================
           HOW VELOOP REWARDS WORK
@@ -42,24 +39,25 @@ function LevelDashboard() {
 
       <HowItWorks />
 
+
       {/* ==================================================
           FEATURED REWARDS
       ================================================== */}
 
       <FeaturedRewards />
 
+
       {/* ==================================================
           CTA + STATS
       ================================================== */}
 
       <CTAStats />
-      
+
 
       {/* ==================================================
           FOOTER
       ================================================== */}
 
-      
       <Footer />
 
     </div>

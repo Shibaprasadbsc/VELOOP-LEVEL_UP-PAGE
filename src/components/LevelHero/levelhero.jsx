@@ -18,10 +18,6 @@ function LevelHero() {
 
       <div className="hero-copy">
 
-        <p className="hero-kicker">
-          LEVEL UP. EARN MORE.
-        </p>
-
         <h1>
           LEVEL UP.
           <br />
