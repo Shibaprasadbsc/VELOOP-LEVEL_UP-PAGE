@@ -2224,24 +2224,38 @@ button {
   box-shadow:
     0 12px 30px rgba(84,26,180,0.2);
 }
+.feature-card:hover .feature-image {
+  transform: scale(1.08);
+
+  filter:
+    drop-shadow(0 0 14px rgba(157, 56, 255, 0.8));
+}
 
 .feature-icon {
-  width: 62px;
-  height: 62px;
+  width: 82px;
+  height: 82px;
 
   display: grid;
   place-items: center;
 
   margin-bottom: 8px;
 
-  color: #e05cff;
+  
+}
+.feature-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  display: block;
 
   filter:
-    drop-shadow(
-      0 0 12px rgba(157,56,255,0.7)
-    );
-}
+    drop-shadow(0 0 10px rgba(157, 56, 255, 0.55));
 
+  transition:
+    transform 0.25s ease,
+    filter 0.25s ease;
+}
 .feature-card h3 {
   margin: 2px 0 4px;
 

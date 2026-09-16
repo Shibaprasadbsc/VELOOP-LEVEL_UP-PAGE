@@ -1,70 +1,69 @@
-import {
-  CalendarCheck,
-  Coins,
-  Hammer,
-  Percent,
-  ShieldCheck,
-  Sparkles,
-  Users,
-  Wallet,
-  Zap,
-  Gift,
-} from 'lucide-react'
+import upiImage from '../../assets/features/upi.png'
+import secureImage from '../../assets/features/secure.png'
+import referImage from '../../assets/features/refer and earn.png'
+import withdrawImage from '../../assets/features/fastwithdraw.png'
+import streakImage from '../../assets/features/dailystreak.png'
+import mineImage from '../../assets/features/mine and earn.png'
+import stakeImage from '../../assets/features/stake and earn.png'
+import tapImage from '../../assets/features/tap and earn.png'
+import promoImage from '../../assets/features/promocode.png'
+import luckySpinImage from '../../assets/features/luckyspin.png'
+import dailyBonusImage from '../../assets/features/dailybonus.png'
 
 function FeatureGrid() {
   const features = [
     {
-      icon: Wallet,
+      image: upiImage,
       title: 'UPI',
       description: 'Seamless UPI redemptions',
     },
     {
-      icon: ShieldCheck,
+      image: secureImage,
       title: 'Secure',
       description: '100% Secure & Trusted',
     },
     {
-      icon: Users,
+      image: referImage,
       title: 'Refer & Earn',
       description: 'Refer friends & earn exciting rewards',
     },
     {
-      icon: Zap,
+      image: withdrawImage,
       title: 'Fast Withdraw',
       description: 'Quick withdrawals in minutes',
     },
     {
-      icon: CalendarCheck,
+      image: streakImage,
       title: 'Daily Streak',
       description: 'Maintain streaks & earn bonus VEs',
     },
     {
-      icon: Hammer,
+      image: mineImage,
       title: 'Mine & Earn',
       description: 'Mine crystals & earn VEs',
     },
     {
-      icon: Coins,
+      image: stakeImage,
       title: 'Stake & Earn',
       description: 'Stake VEs & earn more rewards',
     },
     {
-      icon: Coins,
+      image: tapImage,
       title: 'Tap & Earn',
       description: 'Tap, collect & earn VEs',
     },
     {
-      icon: Percent,
+      image: promoImage,
       title: 'Promo Code',
       description: 'Use promo codes & get extra rewards',
     },
     {
-      icon: Sparkles,
+      image: luckySpinImage,
       title: 'Lucky Spin',
       description: 'Spin daily & win exciting prizes',
     },
     {
-      icon: Gift,
+      image: dailyBonusImage,
       title: 'Daily Bonus',
       description: 'Claim your daily bonus rewards',
     },
@@ -76,28 +75,26 @@ function FeatureGrid() {
 
   return (
     <div className="feature-grid">
+      {features.map((feature) => (
+        <button
+          type="button"
+          className="feature-card"
+          key={feature.title}
+          onClick={() => handleFeatureClick(feature.title)}
+        >
+          <div className="feature-icon">
+            <img
+              src={feature.image}
+              alt={feature.title}
+              className="feature-image"
+            />
+          </div>
 
-      {features.map((feature) => {
-        const Icon = feature.icon
+          <h3>{feature.title}</h3>
 
-        return (
-          <button
-            type="button"
-            className="feature-card"
-            key={feature.title}
-            onClick={() => handleFeatureClick(feature.title)}
-          >
-            <div className="feature-icon">
-              <Icon size={45} strokeWidth={1.7} />
-            </div>
-
-            <h3>{feature.title}</h3>
-
-            <p>{feature.description}</p>
-          </button>
-        )
-      })}
-
+          <p>{feature.description}</p>
+        </button>
+      ))}
     </div>
   )
 }
