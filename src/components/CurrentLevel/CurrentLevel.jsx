@@ -162,7 +162,7 @@ function CurrentLevel() {
 
           <div className="current-level-stat-icon current-level-stat-icon--blue">
             <img
-              src={thunderVolt}
+              src={blueStarBadge}
               alt="SVEs"
               className="current-level-stat-image"
             />
@@ -185,7 +185,7 @@ function CurrentLevel() {
 
           <div className="current-level-stat-icon current-level-stat-icon--purple">
             <img
-              src={purpleCrystal}
+              src={thunderVolt}
               alt="Streak"
               className="current-level-stat-image"
             />
