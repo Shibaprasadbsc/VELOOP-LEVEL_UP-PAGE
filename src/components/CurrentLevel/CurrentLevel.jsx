@@ -1,9 +1,11 @@
-import {
-  Coins,
-  Flame,
-  Trophy,
-  Zap,
-} from 'lucide-react'
+import blueStarBadge from '../../assets/currentlevel/bluestarbadge.png'
+import cup from '../../assets/currentlevel/cup.png'
+import cyanDiamond from '../../assets/currentlevel/cyandiamond.png'
+import dollarCoin from '../../assets/currentlevel/dollarcoin.png'
+import purpleCrystal from '../../assets/currentlevel/purplecrystal.png'
+import purpleLevelStar from '../../assets/currentlevel/purplelevelstar.png'
+import thunderVolt from '../../assets/currentlevel/thundervolt.png'
+import veCoin from '../../assets/currentlevel/vecoin.png'
 
 function CurrentLevel() {
   const currentXP = 7450
@@ -14,26 +16,48 @@ function CurrentLevel() {
   return (
     <section className="current-level-card">
 
-      {/* ==================================================
+      {/* =========================================
+          DECORATIVE ARTWORK
+          ========================================= */}
+
+      <img
+        src={cyanDiamond}
+        alt=""
+        aria-hidden="true"
+        className="current-level-decoration current-level-decoration--diamond"
+      />
+
+      <img
+        src={dollarCoin}
+        alt=""
+        aria-hidden="true"
+        className="current-level-decoration current-level-decoration--dollar"
+      />
+
+      <img
+        src={purpleLevelStar}
+        alt=""
+        aria-hidden="true"
+        className="current-level-decoration current-level-decoration--star"
+      />
+
+      {/* =========================================
           CURRENT LEVEL HEADER
-      ================================================== */}
+          ========================================= */}
 
       <div className="current-level-header">
 
         {/* LEVEL BADGE */}
         <div className="current-level-badge">
-          <div className="current-level-badge-inner">
-            <Trophy
-              size={38}
-              strokeWidth={1.8}
-            />
-          </div>
+          <img
+            src={purpleLevelStar}
+            alt="Current level badge"
+            className="current-level-badge-image"
+          />
         </div>
-
 
         {/* LEVEL INFORMATION */}
         <div className="current-level-information">
-
           <p className="current-level-label">
             CURRENT LEVEL
           </p>
@@ -41,33 +65,26 @@ function CurrentLevel() {
           <h2>
             Level 12
           </h2>
-
         </div>
 
-
-        {/* TOP RIGHT TROPHY */}
+        {/* TOP RIGHT CUP */}
         <div className="current-level-trophy">
-
-          <div className="current-level-trophy-glow">
-            <Trophy
-              size={35}
-              strokeWidth={1.8}
-            />
-          </div>
-
+          <img
+            src={cup}
+            alt="Level reward"
+            className="current-level-trophy-image"
+          />
         </div>
 
       </div>
 
-
-      {/* ==================================================
+      {/* =========================================
           XP PROGRESS
-      ================================================== */}
+          ========================================= */}
 
       <div className="current-level-xp">
 
         <div className="current-level-xp-header">
-
           <span>
             XP Progress
           </span>
@@ -75,9 +92,7 @@ function CurrentLevel() {
           <strong>
             {currentXP.toLocaleString()} / {targetXP.toLocaleString()} XP
           </strong>
-
         </div>
-
 
         <div
           className="current-level-xp-track"
@@ -87,22 +102,19 @@ function CurrentLevel() {
           aria-valuemax={targetXP}
           aria-label="Current XP progress"
         >
-
           <span
             className="current-level-xp-fill"
             style={{
               width: `${progress}%`,
             }}
           />
-
         </div>
 
       </div>
 
-
-      {/* ==================================================
+      {/* =========================================
           NEXT LEVEL
-      ================================================== */}
+          ========================================= */}
 
       <div className="current-level-next">
 
@@ -116,25 +128,24 @@ function CurrentLevel() {
 
       </div>
 
-
-      {/* ==================================================
+      {/* =========================================
           BALANCE / PROGRESS STATS
-      ================================================== */}
+          ========================================= */}
 
       <div className="current-level-stats">
 
-        {/* VEs BALANCE */}
+        {/* VE BALANCE */}
         <div className="current-level-stat">
 
           <div className="current-level-stat-icon current-level-stat-icon--coin">
-            <Coins
-              size={22}
-              strokeWidth={2}
+            <img
+              src={veCoin}
+              alt="VE Coin"
+              className="current-level-stat-image"
             />
           </div>
 
           <div className="current-level-stat-content">
-
             <span>
               Your Balance
             </span>
@@ -142,24 +153,22 @@ function CurrentLevel() {
             <strong>
               12,540 VEs
             </strong>
-
           </div>
 
         </div>
-
 
         {/* SVEs BALANCE */}
         <div className="current-level-stat">
 
           <div className="current-level-stat-icon current-level-stat-icon--blue">
-            <Zap
-              size={22}
-              strokeWidth={2}
+            <img
+              src={thunderVolt}
+              alt="SVEs"
+              className="current-level-stat-image"
             />
           </div>
 
           <div className="current-level-stat-content">
-
             <span>
               SVEs Balance
             </span>
@@ -167,24 +176,22 @@ function CurrentLevel() {
             <strong>
               8,320 SVEs
             </strong>
-
           </div>
 
         </div>
-
 
         {/* STREAK */}
         <div className="current-level-stat">
 
           <div className="current-level-stat-icon current-level-stat-icon--purple">
-            <Flame
-              size={22}
-              strokeWidth={2}
+            <img
+              src={purpleCrystal}
+              alt="Streak"
+              className="current-level-stat-image"
             />
           </div>
 
           <div className="current-level-stat-content">
-
             <span>
               Streak
             </span>
@@ -192,7 +199,6 @@ function CurrentLevel() {
             <strong>
               12 Days
             </strong>
-
           </div>
 
         </div>
