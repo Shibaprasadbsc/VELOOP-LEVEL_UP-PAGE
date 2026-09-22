@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react'
 import rocketImage from '../../assets/ctastats/rocket.png'
 import activeUsersImage from '../../assets/ctastats/active_users.png'
 import tasksCompletedImage from '../../assets/ctastats/tasks_completed.png'
-import vesEarnedImage from '../../assets/ctastats/VEs_earned.png'
+import vesEarnedImage from '../../assets/ctastats/Ves_earned.png'
 import rewardsRedeemedImage from '../../assets/ctastats/rewards_redeemed.png'
 
 const stats = [
