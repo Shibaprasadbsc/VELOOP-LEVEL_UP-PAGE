@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Coins, Play, RotateCcw, Timer, Trophy, Zap } from 'lucide-react'
+import { Play, RotateCcw } from 'lucide-react'
+
+import prizeTrophyImage from '../../assets/coincatcher/prize_trophy.png'
+import rewardThunderboltImage from '../../assets/coincatcher/reward_thunderbolt.png'
+import timerStopwatchImage from '../../assets/coincatcher/timer_stopwatch.png'
+import veCoinCatchImage from '../../assets/coincatcher/ve_coin_catch.png'
 
 const GAME_DURATION = 20
 const REWARD_XP = 25
@@ -66,7 +71,13 @@ function CoinCatcher() {
 
   return (
     <section className="coin-catcher card">
+
+      {/* =====================================================
+          HEADER
+          ===================================================== */}
+
       <div className="coin-catcher__header">
+
         <div>
           <p className="coin-catcher__eyebrow">
             MINI GAME
@@ -81,15 +92,35 @@ function CoinCatcher() {
           </p>
         </div>
 
+        {/* VE COIN IMAGE */}
+
         <div className="coin-catcher__badge">
-          <Coins size={22} />
+          <img
+            src={veCoinCatchImage}
+            alt="VE Coin"
+            className="coin-catcher__asset coin-catcher__asset--badge"
+          />
         </div>
+
       </div>
 
+
+      {/* =====================================================
+          GAME STATS
+          ===================================================== */}
+
       <div className="coin-catcher__stats">
+
+        {/* SCORE */}
+
         <div className="coin-catcher__stat">
+
           <span className="coin-catcher__stat-icon">
-            <Trophy size={17} />
+            <img
+              src={prizeTrophyImage}
+              alt=""
+              className="coin-catcher__asset"
+            />
           </span>
 
           <div>
@@ -97,13 +128,24 @@ function CoinCatcher() {
               SCORE
             </span>
 
-            <strong>{score}</strong>
+            <strong>
+              {score}
+            </strong>
           </div>
+
         </div>
 
+
+        {/* TIME */}
+
         <div className="coin-catcher__stat">
+
           <span className="coin-catcher__stat-icon">
-            <Timer size={17} />
+            <img
+              src={timerStopwatchImage}
+              alt=""
+              className="coin-catcher__asset"
+            />
           </span>
 
           <div>
@@ -111,13 +153,24 @@ function CoinCatcher() {
               TIME
             </span>
 
-            <strong>{timeLeft}s</strong>
+            <strong>
+              {timeLeft}s
+            </strong>
           </div>
+
         </div>
 
+
+        {/* REWARD */}
+
         <div className="coin-catcher__stat">
+
           <span className="coin-catcher__stat-icon">
-            <Zap size={17} />
+            <img
+              src={rewardThunderboltImage}
+              alt=""
+              className="coin-catcher__asset"
+            />
           </span>
 
           <div>
@@ -125,17 +178,38 @@ function CoinCatcher() {
               REWARD
             </span>
 
-            <strong>+{REWARD_XP} XP</strong>
+            <strong>
+              +{REWARD_XP} XP
+            </strong>
           </div>
+
         </div>
+
       </div>
+
+
+      {/* =====================================================
+          GAME AREA
+          ===================================================== */}
 
       <div className="coin-catcher__game-area">
 
+
+        {/* ===================================================
+            START SCREEN
+            =================================================== */}
+
         {gameState === 'start' && (
           <div className="coin-catcher__overlay">
+
             <div className="coin-catcher__overlay-icon">
-              <Coins size={34} />
+
+              <img
+                src={veCoinCatchImage}
+                alt="VE Coin"
+                className="coin-catcher__asset coin-catcher__asset--overlay"
+              />
+
             </div>
 
             <h3>
@@ -154,12 +228,19 @@ function CoinCatcher() {
               <Play size={18} />
               Start Game
             </button>
+
           </div>
         )}
+
+
+        {/* ===================================================
+            PLAYING
+            =================================================== */}
 
         {gameState === 'playing' && coin && (
           <>
             <div className="coin-catcher__playing-header">
+
               <span>
                 Catch the coins!
               </span>
@@ -167,15 +248,24 @@ function CoinCatcher() {
               <span>
                 {GAME_DURATION - timeLeft}s / {GAME_DURATION}s
               </span>
+
             </div>
 
+
             <div className="coin-catcher__progress">
+
               <span
                 style={{
-                  width: `${((GAME_DURATION - timeLeft) / GAME_DURATION) * 100}%`,
+                  width: `${
+                    ((GAME_DURATION - timeLeft) / GAME_DURATION) * 100
+                  }%`,
                 }}
               />
+
             </div>
+
+
+            {/* CLICKABLE VE COIN */}
 
             <button
               type="button"
@@ -185,42 +275,86 @@ function CoinCatcher() {
                 top: `${coin.y}%`,
               }}
               onClick={collectCoin}
-              aria-label="Catch coin"
+              aria-label="Catch VE coin"
             >
-              <Coins size={27} />
+              <img
+                src={veCoinCatchImage}
+                alt=""
+                className="coin-catcher__coin-image"
+              />
             </button>
+
           </>
         )}
+
+
+        {/* ===================================================
+            COMPLETE SCREEN
+            =================================================== */}
 
         {gameState === 'complete' && (
           <div className="coin-catcher__overlay coin-catcher__overlay--complete">
 
+            {/* TROPHY */}
+
             <div className="coin-catcher__result-icon">
-              <Trophy size={34} />
+
+              <img
+                src={prizeTrophyImage}
+                alt="Prize trophy"
+                className="coin-catcher__asset coin-catcher__asset--result"
+              />
+
             </div>
+
 
             <p className="coin-catcher__result-label">
               GAME COMPLETE
             </p>
 
+
             <h3>
               Great Catch!
             </h3>
 
+
+            {/* SCORE */}
+
             <div className="coin-catcher__result-score">
-              <span>Score</span>
-              <strong>{score}</strong>
+
+              <span>
+                Score
+              </span>
+
+              <strong>
+                {score}
+              </strong>
+
             </div>
 
+
+            {/* REWARD */}
+
             <div className="coin-catcher__reward">
-              <Zap size={18} />
+
+              <img
+                src={rewardThunderboltImage}
+                alt=""
+                className="coin-catcher__reward-image"
+              />
+
               <span>
                 Reward
               </span>
+
               <strong>
                 +{REWARD_XP} XP
               </strong>
+
             </div>
+
+
+            {/* PLAY AGAIN */}
 
             <button
               type="button"
@@ -230,6 +364,9 @@ function CoinCatcher() {
               <RotateCcw size={18} />
               Play Again
             </button>
+
+
+            {/* RESET */}
 
             <button
               type="button"
@@ -243,6 +380,7 @@ function CoinCatcher() {
         )}
 
       </div>
+
     </section>
   )
 }

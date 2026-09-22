@@ -1,11 +1,33 @@
-import {
-  ArrowRight,
-  CalendarCheck,
-  Coins,
-  Gift,
-  Rocket,
-  Users,
-} from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+
+import rocketImage from '../../assets/ctastats/rocket.png'
+import activeUsersImage from '../../assets/ctastats/active_users.png'
+import tasksCompletedImage from '../../assets/ctastats/tasks_completed.png'
+import vesEarnedImage from '../../assets/ctastats/VEs_earned.png'
+import rewardsRedeemedImage from '../../assets/ctastats/rewards_redeemed.png'
+
+const stats = [
+  {
+    image: activeUsersImage,
+    value: '250K+',
+    label: 'Active Users',
+  },
+  {
+    image: tasksCompletedImage,
+    value: '1.2M+',
+    label: 'Tasks Completed',
+  },
+  {
+    image: vesEarnedImage,
+    value: '5M+',
+    label: 'VEs Earned',
+  },
+  {
+    image: rewardsRedeemedImage,
+    value: '100K+',
+    label: 'Rewards Redeemed',
+  },
+]
 
 function CTAStats() {
   const handleJoinNow = () => {
@@ -15,13 +37,26 @@ function CTAStats() {
   return (
     <section className="cta-stats-section">
 
+      {/* =====================================================
+          CTA CARD
+          ===================================================== */}
+
       <div className="cta-card">
 
+        {/* ROCKET ART */}
+
         <div className="rocket-art">
-          <Rocket size={72} />
+          <img
+            src={rocketImage}
+            alt="VELOOP Rewards"
+            className="cta-rocket-image"
+          />
         </div>
 
-        <div>
+
+        {/* CTA CONTENT */}
+
+        <div className="cta-content">
 
           <h2>
             The More You Play,
@@ -35,44 +70,49 @@ function CTAStats() {
             journey to amazing rewards.
           </p>
 
-        </div>
+          <button
+            type="button"
+            className="yellow-button"
+            onClick={handleJoinNow}
+          >
+            Join Now
+            <ArrowRight size={19} />
+          </button>
 
-        <button
-          type="button"
-          className="yellow-button"
-          onClick={handleJoinNow}
-        >
-          Join Now
-          <ArrowRight size={19} />
-        </button>
+        </div>
 
       </div>
 
+
+      {/* =====================================================
+          STATS
+          ===================================================== */}
+
       <div className="stats-grid">
 
-        <div className="stat-card">
-          <Users size={31} />
-          <strong>250K+</strong>
-          <span>Active Users</span>
-        </div>
+        {stats.map((stat) => (
+          <div
+            className="stat-card"
+            key={stat.label}
+          >
 
-        <div className="stat-card">
-          <CalendarCheck size={31} />
-          <strong>1.2M+</strong>
-          <span>Tasks Completed</span>
-        </div>
+            <div className="stat-image">
+              <img
+                src={stat.image}
+                alt=""
+              />
+            </div>
 
-        <div className="stat-card">
-          <Coins size={31} />
-          <strong>5M+</strong>
-          <span>VEs Earned</span>
-        </div>
+            <strong>
+              {stat.value}
+            </strong>
 
-        <div className="stat-card">
-          <Gift size={31} />
-          <strong>100K+</strong>
-          <span>Rewards Redeemed</span>
-        </div>
+            <span>
+              {stat.label}
+            </span>
+
+          </div>
+        ))}
 
       </div>
 

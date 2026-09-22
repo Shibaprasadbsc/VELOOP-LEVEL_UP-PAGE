@@ -1,71 +1,86 @@
 import {
   ChevronLeft,
   ChevronRight,
+  Star,
+  Coins,
 } from 'lucide-react'
 
+import amazonVoucherStar from '../../assets/featuredrewards/amazon_voucher_star.png'
+import amazonVoucherDollar from '../../assets/featuredrewards/amazon_voucher_dollar.png'
+import airpodsPro from '../../assets/featuredrewards/airpods_pro.png'
+import smartWatch from '../../assets/featuredrewards/smart_watch.png'
+import iphone15 from '../../assets/featuredrewards/iphone_15.png'
+
+const rewards = [
+  {
+    id: 1,
+    title: 'Amazon Voucher',
+    value: '₹20',
+    image: amazonVoucherStar,
+    cost: '2,000',
+    type: 'star',
+  },
+  {
+    id: 2,
+    title: 'Amazon Voucher',
+    value: '₹500',
+    image: amazonVoucherStar,
+    cost: '300',
+    type: 'star',
+  },
+  {
+    id: 3,
+    title: 'Amazon Voucher',
+    value: '₹2,000',
+    image: amazonVoucherDollar,
+    cost: '500',
+    type: 'coin',
+    featured: true,
+  },
+  {
+    id: 4,
+    title: 'AirPods Pro',
+    subtitle: '(2nd Gen)',
+    image: airpodsPro,
+    cost: '500',
+    type: 'star',
+  },
+  {
+    id: 5,
+    title: 'Smart Watch',
+    subtitle: 'Premium',
+    image: smartWatch,
+    cost: '200',
+    type: 'coin',
+  },
+  {
+    id: 6,
+    title: 'iPhone 15',
+    subtitle: '(128GB)',
+    image: iphone15,
+    cost: '250',
+    type: 'coin',
+  },
+]
+
 function FeaturedRewards() {
-  const rewards = [
-    {
-      title: 'Amazon Voucher',
-      subtitle: '₹20',
-      icon: 'a',
-      points: '2,000',
-      type: 'xp',
-    },
-    {
-      title: 'Amazon Voucher',
-      subtitle: '₹500',
-      icon: 'a',
-      points: '300',
-      type: 'xp',
-    },
-    {
-      title: 'Amazon Voucher',
-      subtitle: '₹2,000',
-      icon: 'a',
-      points: '500',
-      type: 've',
-      featured: true,
-    },
-    {
-      title: 'AirPods Pro',
-      subtitle: '(2nd Gen)',
-      icon: '🎧',
-      points: '500',
-      type: 'xp',
-    },
-    {
-      title: 'Smart Watch',
-      subtitle: 'Premium',
-      icon: '⌚',
-      points: '200',
-      type: 've',
-    },
-    {
-      title: 'iPhone 15',
-      subtitle: '(128GB)',
-      icon: '📱',
-      points: '250',
-      type: 've',
-    },
-  ]
+  const handlePrevious = () => {
+    console.log('Previous rewards')
+  }
 
-  const scrollRewards = (direction) => {
-    const container = document.querySelector('.rewards-grid')
-
-    if (!container) return
-
-    container.scrollBy({
-      left: direction === 'left' ? -300 : 300,
-      behavior: 'smooth',
-    })
+  const handleNext = () => {
+    console.log('Next rewards')
   }
 
   return (
     <section
       id="rewards"
-      className="featured-section"
+      className="featured-rewards-section"
     >
+
+      {/* =====================================================
+          SECTION TITLE
+          ===================================================== */}
 
       <div className="section-title">
         <span />
@@ -73,56 +88,79 @@ function FeaturedRewards() {
         <span />
       </div>
 
-      <div className="rewards-wrapper">
+
+      {/* =====================================================
+          REWARDS CAROUSEL
+          ===================================================== */}
+
+      <div className="featured-rewards-wrapper">
+
+        {/* LEFT ARROW */}
 
         <button
           type="button"
-          className="carousel-button left"
-          onClick={() => scrollRewards('left')}
+          className="featured-rewards-arrow featured-rewards-arrow--left"
+          onClick={handlePrevious}
           aria-label="Previous rewards"
         >
           <ChevronLeft size={22} />
         </button>
 
-        <div className="rewards-grid">
+
+        {/* REWARD CARDS */}
+
+        <div className="featured-rewards-grid">
 
           {rewards.map((reward) => (
             <article
+              key={reward.id}
               className={`reward-card ${
-                reward.featured ? 'featured' : ''
+                reward.featured ? 'reward-card--featured' : ''
               }`}
-              key={`${reward.title}-${reward.subtitle}`}
             >
 
-              <h3>{reward.title}</h3>
+              {/* REWARD NAME */}
 
-              <strong className="reward-name">
-                {reward.subtitle}
-              </strong>
+              <div className="reward-card-title">
+                <span>{reward.title}</span>
 
-              <div className="reward-image">
-
-                {reward.icon === 'a' ? (
-                  <span className="amazon-icon">
-                    a
-                  </span>
-                ) : (
-                  <span className="emoji-product">
-                    {reward.icon}
-                  </span>
+                {reward.value && (
+                  <strong>{reward.value}</strong>
                 )}
 
+                {reward.subtitle && (
+                  <small>{reward.subtitle}</small>
+                )}
               </div>
 
-              <div className="reward-points">
 
-                <span>
-                  {reward.type === 'xp'
-                    ? '✦'
-                    : '🪙'}
-                </span>
+              {/* REWARD IMAGE */}
 
-                {reward.points}
+              <div className="reward-card-image">
+                <img
+                  src={reward.image}
+                  alt={reward.title}
+                />
+              </div>
+
+
+              {/* REWARD COST */}
+
+              <div className="reward-card-cost">
+
+                {reward.type === 'star' ? (
+                  <Star
+                    size={17}
+                    fill="currentColor"
+                  />
+                ) : (
+                  <Coins
+                    size={17}
+                    fill="currentColor"
+                  />
+                )}
+
+                <strong>{reward.cost}</strong>
 
               </div>
 
@@ -131,10 +169,13 @@ function FeaturedRewards() {
 
         </div>
 
+
+        {/* RIGHT ARROW */}
+
         <button
           type="button"
-          className="carousel-button right"
-          onClick={() => scrollRewards('right')}
+          className="featured-rewards-arrow featured-rewards-arrow--right"
+          onClick={handleNext}
           aria-label="Next rewards"
         >
           <ChevronRight size={22} />
