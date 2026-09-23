@@ -700,6 +700,7 @@
 }
 
 
+
 /* =========================================================
    RESPONSIVE — TABLET
    ========================================================= */
@@ -762,123 +763,6 @@
 }
 
 
-/* =========================================================
-   RESPONSIVE — MOBILE
-   ========================================================= */
-/* CURRENT LEVEL — MOBILE */
-.current-level-card {
-  height: auto;
-  min-height: 0;
-  max-height: none;
-  padding: 15px 14px 13px;
-  border-radius: 16px;
-}
-
-.current-level-header {
-  grid-template-columns: 54px minmax(0, 1fr) 42px;
-  gap: 9px;
-  min-height: 54px;
-  margin-bottom: 12px;
-}
-
-.current-level-badge {
-  width: 54px;
-  height: 54px;
-}
-
-.current-level-badge-image {
-  width: 54px;
-  height: 54px;
-}
-
-.current-level-label {
-  margin-bottom: 3px;
-  font-size: 8px;
-  letter-spacing: 0.4px;
-}
-
-.current-level-information h2 {
-  font-size: 24px;
-  letter-spacing: -0.5px;
-}
-
-.current-level-trophy {
-  width: 42px;
-  height: 42px;
-}
-
-.current-level-trophy-image {
-  width: 54px;
-  height: 54px;
-}
-
-/* XP */
-.current-level-xp {
-  margin-bottom: 10px;
-}
-
-.current-level-xp-header {
-  gap: 10px;
-  margin-bottom: 5px;
-  font-size: 9px;
-}
-
-.current-level-xp-header strong {
-  font-size: 9px;
-}
-
-.current-level-xp-track {
-  height: 7px;
-}
-
-/* NEXT LEVEL */
-.current-level-next {
-  min-height: 38px;
-  padding: 0 9px;
-  margin-bottom: 9px;
-  border-radius: 9px;
-  font-size: 9px;
-}
-
-.current-level-next strong {
-  font-size: 9px;
-}
-
-/* STATS — KEEP THEM HORIZONTAL */
-.current-level-stats {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  min-height: 42px;
-}
-
-.current-level-stat {
-  grid-template-columns: 30px minmax(0, 1fr);
-  gap: 5px;
-  padding: 3px 5px;
-}
-
-.current-level-stat + .current-level-stat {
-  border-left: 1px solid rgba(255, 255, 255, 0.10);
-  border-top: 0;
-}
-
-.current-level-stat-icon {
-  width: 30px;
-  height: 30px;
-}
-
-.current-level-stat-image {
-  width: 30px;
-  height: 30px;
-}
-
-.current-level-stat-content span {
-  margin-bottom: 1px;
-  font-size: 7px;
-}
-
-.current-level-stat-content strong {
-  font-size: 9px;
-}
 
 /* =========================================================
    VERY SMALL SCREENS
@@ -4390,42 +4274,125 @@ button {
     align-items: start;
   }
 
-  .current-level-card {
-    height: auto;
-    min-height: 0;
-    max-height: none;
-    padding: 19px;
-  }
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+/* CURRENT LEVEL — MOBILE */
 
-  .current-level-header {
-    grid-template-columns: 62px minmax(0, 1fr) 48px;
-    gap: 12px;
-    margin-bottom: 19px;
-  }
+.current-level-card {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  padding: 15px 14px 13px;
+  border-radius: 16px;
+}
 
-  .current-level-badge {
-    width: 60px;
-    height: 60px;
-  }
+.current-level-header {
+  grid-template-columns: 54px minmax(0, 1fr) 42px;
+  gap: 9px;
+  min-height: 54px;
+  margin-bottom: 12px;
+}
 
-  .current-level-information h2 {
-    font-size: 28px;
-  }
+.current-level-badge {
+  width: 54px;
+  height: 54px;
+}
 
-  .current-level-trophy {
-    width: 45px;
-    height: 45px;
-  }
+.current-level-badge-image {
+  width: 54px;
+  height: 54px;
+}
 
-  .current-level-stats {
-    grid-template-columns: 1fr;
-  }
+.current-level-label {
+  margin-bottom: 3px;
+  font-size: 8px;
+  letter-spacing: 0.4px;
+}
 
-  .current-level-stat + .current-level-stat {
-    border-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.10);
-  }
+.current-level-information h2 {
+  font-size: 24px;
+  letter-spacing: -0.5px;
+}
 
+.current-level-trophy {
+  width: 42px;
+  height: 42px;
+}
+
+.current-level-trophy-image {
+  width: 54px;
+  height: 54px;
+}
+
+/* XP */
+.current-level-xp {
+  margin-bottom: 10px;
+}
+
+.current-level-xp-header {
+  gap: 10px;
+  margin-bottom: 5px;
+  font-size: 9px;
+}
+
+.current-level-xp-header strong {
+  font-size: 9px;
+}
+
+.current-level-xp-track {
+  height: 7px;
+}
+
+/* NEXT LEVEL */
+.current-level-next {
+  min-height: 38px;
+  padding: 0 9px;
+  margin-bottom: 9px;
+  border-radius: 9px;
+  font-size: 9px;
+}
+
+.current-level-next strong {
+  font-size: 9px;
+}
+
+/* STATS — KEEP THEM HORIZONTAL */
+.current-level-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-height: 42px;
+}
+
+.current-level-stat {
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 5px;
+  padding: 3px 5px;
+}
+
+.current-level-stat + .current-level-stat {
+  border-left: 1px solid rgba(255, 255, 255, 0.10);
+  border-top: 0;
+}
+
+.current-level-stat-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.current-level-stat-image {
+  width: 30px;
+  height: 30px;
+}
+
+.current-level-stat-content span {
+  margin-bottom: 1px;
+  font-size: 7px;
+}
+
+.current-level-stat-content strong {
+  font-size: 9px;
+}
+ 
 /* =========================================================
    GIVEAWAY LEADERBOARD
    ========================================================= */
