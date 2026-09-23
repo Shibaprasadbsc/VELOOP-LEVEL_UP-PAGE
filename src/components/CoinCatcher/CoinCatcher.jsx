@@ -12,7 +12,7 @@ const REWARD_XP = 25
 const createCoin = () => ({
   id: `${Date.now()}-${Math.random()}`,
   x: Math.floor(Math.random() * 82) + 5,
-  y: Math.floor(Math.random() * 70) + 8,
+  y: Math.floor(Math.random() * 55) + 30,
 })
 
 function CoinCatcher() {
@@ -292,92 +292,64 @@ function CoinCatcher() {
             COMPLETE SCREEN
             =================================================== */}
 
-        {gameState === 'complete' && (
-          <div className="coin-catcher__overlay coin-catcher__overlay--complete">
+          {gameState === 'complete' && (
+  <div className="coin-catcher__overlay coin-catcher__overlay--complete">
 
-            {/* TROPHY */}
+    <div className="coin-catcher__result-icon">
+      <img
+        src={prizeTrophyImage}
+        alt="Prize trophy"
+        className="coin-catcher__asset coin-catcher__asset--result"
+      />
+    </div>
 
-            <div className="coin-catcher__result-icon">
+    <p className="coin-catcher__result-label">
+      GAME COMPLETE
+    </p>
 
-              <img
-                src={prizeTrophyImage}
-                alt="Prize trophy"
-                className="coin-catcher__asset coin-catcher__asset--result"
-              />
+    <h3>Great Catch!</h3>
 
-            </div>
+    <div className="coin-catcher__result-meta">
 
+      <div className="coin-catcher__result-score">
+        <span>Score</span>
+        <strong>{score}</strong>
+      </div>
 
-            <p className="coin-catcher__result-label">
-              GAME COMPLETE
-            </p>
+      <div className="coin-catcher__reward">
+        <img
+          src={rewardThunderboltImage}
+          alt=""
+        />
+        <span>Reward</span>
+        <strong>+{REWARD_XP} XP</strong>
+      </div>
 
+    </div>
 
-            <h3>
-              Great Catch!
-            </h3>
+    <div className="coin-catcher__result-actions">
 
+      <button
+        type="button"
+        className="btn btn-primary coin-catcher__action"
+        onClick={startGame}
+      >
+        <RotateCcw size={18} />
+        Play Again
+      </button>
 
-            {/* SCORE */}
+      <button
+        type="button"
+        className="coin-catcher__reset"
+        onClick={resetGame}
+      >
+        Reset
+      </button>
 
-            <div className="coin-catcher__result-score">
+    </div>
 
-              <span>
-                Score
-              </span>
-
-              <strong>
-                {score}
-              </strong>
-
-            </div>
-
-
-            {/* REWARD */}
-
-            <div className="coin-catcher__reward">
-
-              <img
-                src={rewardThunderboltImage}
-                alt=""
-                className="coin-catcher__reward-image"
-              />
-
-              <span>
-                Reward
-              </span>
-
-              <strong>
-                +{REWARD_XP} XP
-              </strong>
-
-            </div>
-
-
-            {/* PLAY AGAIN */}
-
-            <button
-              type="button"
-              className="btn btn-primary coin-catcher__action"
-              onClick={startGame}
-            >
-              <RotateCcw size={18} />
-              Play Again
-            </button>
-
-
-            {/* RESET */}
-
-            <button
-              type="button"
-              className="coin-catcher__reset"
-              onClick={resetGame}
-            >
-              Reset
-            </button>
-
-          </div>
-        )}
+  </div>
+)}
 
       </div>
 
